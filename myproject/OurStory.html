@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Our Story</title>
+    <style>
+        * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+        overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .card {
+      position: relative;
+      width: calc(25% - 20px);
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .card img {
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .card .hover-image {
+      opacity: 0;
+    }
+    
+    .card:hover .original-image {
+      opacity: 0;
+    }
+    
+    .card:hover .hover-image {
+      opacity: 1;
+    }
+    
+    .card .info {
+      padding: 20px;
+    }
+    
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    
+    .card .price {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .view-more-btn {
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0 0 8px 8px;
+      transition: background-color 0.3s;
+    }
+    
+    .view-more-btn:hover {
+      background-color: #45a049;
+    }
+    
+    .idea p{
+        position: relative;
+        bottom: 35px;
+        text-align: left;
+    }
+
+    .idea h1{
+        position: relative;
+        bottom: 70px;
+    }
+
+    .allpics{
+        position: relative;
+        top: 70px;
+        left: 880px;
+        height: 150px;
+        opacity: 1;
+    }
+    .andvoila{
+        position: relative;
+        left: 410px;
+        bottom: 390px;
+        text-wrap: balance;
+        text-overflow: hidden;
+    }
+    .candies{
+        position: relative;
+        bottom: 300px;
+    }
+    /* .candyss p{
+       
+    } */
+    @media (max-width: 768px) {
+      .card {
+        width: calc(50% - 20px);
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .card {
+        width: 100%;
+      }
+    }
+
+
+    .footer {
+        position: absolute;
+        top: 450%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 1280px;
+        width: 95%;
+        background: rgba(57, 13, 0, 0.743);
+        border-radius: 6px;
+        }
+
+        .footer .footer-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 3.5rem;
+        padding: 60px;
+        }
+
+        .footer-row .footer-col h4 {
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 400;
+        }
+
+        .footer-col .links {
+        margin-top: 20px;
+        }
+
+        .footer-col .links li {
+        list-style: none;
+        margin-bottom: 10px;
+        }
+
+        .footer-col .links li a {
+        text-decoration: none;
+        color: #bfbfbf;
+        }
+
+        .footer-col .links li a:hover {
+        color: #fff;
+        }
+
+        .footer-col p {
+        margin: 20px 0;
+        color: #bfbfbf;
+        max-width: 300px;
+        }
+
+        .footer-col form {
+        display: flex;
+        gap: 5px;
+        }
+
+        .footer-col input {
+        height: 40px;
+        border-radius: 6px;
+        background: none;
+        width: 100%;
+        outline: none;
+        border: 1px solid #7489C6 ;
+        caret-color: #fff;
+        color: #fff;
+        padding-left: 10px;
+        }
+
+        .footer-col input::placeholder {
+        color: #ccc;
+        }
+
+        .footer-col form button {
+        background: #fff;
+        outline: none;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.2s ease;
+        }
+
+        .footer-col form button:hover {
+        background: #cecccc;
+        }
+
+        .footer-col .icons {
+        display: flex;
+        margin-top: 30px;
+        gap: 30px;
+        cursor: pointer;
+        }
+
+        .footer-col .icons i {
+        color: #afb6c7;
+        }
+
+        .footer-col .icons i:hover  {
+        color: #fff;
+        }
+
+        /* navbar styling */
+        .navbar {
+    position: relative;
+    display: flex;
+    padding: 10px;
+    background-color: rgba(128, 0, 0, 0.526);
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 7px 5px 15px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 7px 5px 15px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 7px 5px 15px -4px rgba(0, 0, 0, 0.75);
+}
+
+.nav-items > ul > li {
+    position: relative;
+    display: inline;
+    list-style: none;
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.nav-items > ul > li > a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-items > ul > li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.17rem;
+    background-color: #c52726;
+    left: 0;
+    bottom: 0;
+    transform-origin: 0% 100%;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items > ul > li:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-logo a,
+.nav-button a {
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+}
+
+.nav-logo {
+    font-size: 32px;
+}
+
+.nav-button {
+    background-color: #c52726;
+    border-radius: 50px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.anim-layer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    background-color: white;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-button:hover .anim-layer {
+    width: 100%;
+    left: 0;
+}
+
+.nav-button:hover a {
+    color: #141214;
+}
+
+.nav-button a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+#hamburger-menu,
+#mobile-menu {
+    display: none;
+}
+
+@media only screen and (max-width: 770px) {
+    #mobile-menu {
+        background-color: #c52726;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+    }
+
+    .mobile-nav-items > ul {
+        padding: 0px;
+    }
+
+    .mobile-nav-items > ul > li {
+        text-align: center;
+        position: relative;
+        list-style: none;
+        margin: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    .mobile-nav-items > ul > li > a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .mobile-nav-items > ul > li::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 0.17rem;
+        background-color: white;
+        left: 0;
+        bottom: 0;
+        transform-origin: 0% 100%;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-nav-items > ul > li:hover::after {
+        transform: scaleX(1);
+    }
+
+    .mobile-nav-button {
+        background-color: #141214;
+        border-radius: 50px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .mobile-nav-button .anim-layer {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 0;
+        height: 100%;
+        background-color: white;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .mobile-nav-button:hover .anim-layer {
+        width: 100%;
+        left: 0;
+    }
+
+    .mobile-nav-button:hover a {
+        color: #141214;
+    }
+
+    .mobile-nav-button a {
+        display: block;
+        padding: 10px 20px;
+        color: white;
+        text-decoration: none;
+        position: relative;
+        z-index: 1;
+    }
+
+    .nav-items > ul,
+    .nav-button {
+        display: none;
+    }
+
+    #hamburger-cross {
+        display: block;
+        color: white;
+        cursor: pointer;
+        font-size: 40px;
+        position: absolute;
+        top: 20px;
+        right: 26px;
+    }
+
+    #hamburger-menu {
+        display: block;
+        color: white;
+        cursor: pointer;
+        font-size: 24px;
+    }
+}
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="navbar" style="position: relative;">
+        <div class="nav-logo">
+          <a href="shop.html" style="position: absolute;  top:0.5rem; left: 1rem; height: 3rem; width: 3rem;">
+            <img src="anantalogo.png" style="width: 3rem;" alt="">
+          </a>
+        </div>
+        <div class="nav-items">
+          <ul>
+            <li><a href="shop.html"> Shop </a></li>
+            <li><a href="BestDeals.html"> Best Deals </a></li>
+            <li><a href="OurStory.html"> Our Story </a></li>
+            <li><a href="BulkOrder.html"> Bulk Orders </a></li>
+          </ul>
+        </div>
+        <div class="nav-button">
+          <div class="anim-layer"></div>
+          <a href="Enquiry.html">Sign Up</a>
+        </div>
+        <div id="hamburger-menu">&#9776;</div>
+      </div>
+  
+      <div id="mobile-menu">
+        <div class="mobile-nav-items">
+          <ul>
+            <li><a href="shop.html"> Shop </a></li>
+            <li><a href="BestDeals.html"> Best Deals </a></li>
+            <li><a href="OurStory.html"> Our Story </a></li>
+            <li><a href="BulkOrder.html"> Bulk Orders </a></li>
+          </ul>
+        </div>
+        <div class="mobile-nav-button">
+          <div class="anim-layer"></div>
+          <a href="#">Sign Up</a>
+        </div>
+        <div id="hamburger-cross">&#10006;</div>
+      </div>
+      <br><br>
+    <div>
+
+<div class="container">
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="product1.jpg" alt="Product 1" class="original-image">
+      <img src="product10.jpg" alt="Product 1 Hover" class="hover-image" style="height: 250px;">
+      <div class="info">
+        <h3>Product Name 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="price">$19.99</p>
+        <p>Rating: 4.5/5</p>
+      </div>
+      <a href="product1.html" class="view-more-btn">View More</a>
+    </div>
+    
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="product2.jpg" alt="Product 2" class="original-image">
+      <img src="product9.jpg" alt="Product 2 Hover" class="hover-image" style="height: 250px;">
+      <div class="info">
+        <h3>Product Name 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="price">$29.99</p>
+        <p>Rating: 4.2/5</p>
+      </div>
+      <a href="product2.html" class="view-more-btn">View More</a>
+    </div>
+    
+    <!-- Card 3 -->
+    <div class="card">
+      <img src="product3.jpg" alt="Product 3" class="original-image">
+      <img src="product8.jpg" alt="Product 3 Hover" class="hover-image" style="height: 240px;">
+      <div class="info">
+        <h3>Product Name 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="price">$39.99</p>
+        <p>Rating: 4.8/5</p>
+      </div>
+      <a href="product3.html" class="view-more-btn">View More</a>
+    </div>
+    
+    <!-- Card 4 -->
+    <div class="card">
+      <img src="product4.jpg" alt="Product 4" class="original-image">
+      <img src="product7.jpg" alt="Product 4 Hover" class="hover-image" style="height: 250px;">
+      <div class="info">
+        <h3>Product Name 4</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="price">$49.99</p>
+        <p>Rating: 4.1/5</p>
+      </div>
+      <a href="product4.html" class="view-more-btn">View More</a>
+    </div>
+  </div>
+  <br><br>
+    <div>
+    <center>
+        <h1 style="color: rgba(0, 151, 151, 0.491);">Our Story</h1>
+        <pre style="color: #3d7f40; font-weight: bolder;font-size: medium;">
+            At Ananta, we're on a mission to shake up the chocolate game and bring a wave of freshness to your
+                taste buds. No more settling for the same old chocolate; we're here to redefine the chocolate
+                            experience for the vibrant and adventurous Gen Z crowd.
+
+            Picture this: Two dynamic minds, fueled by a shared passion for breaking the chocolate mold. They
+                craved something exciting, something that screamed "new" and "different." That's when Rocca was 
+                            born, out of a desire to revolutionize the chocolate scene in India.
+        </pre>
+    </center>
+    </div>
+    <div class="allpics">
+        <img src="4poster.png" alt="" height="490px">
+    </div>
+    <div class="idea">
+        <h1 style="color: turquoise;">Idea of Ananta - Real Taste Deluxe Candy</h1>
+        <p style="color: rgb(1, 95, 51); font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: larger;">
+            One fateful summer, Yash stumbled upon the mouthwatering <br>
+            English Almond Brittle while soaking up the European sun. <br>
+            The flavor was so captivating that he couldn't resist bringing it <br> 
+            home to share with the Indian audience. Enter Sonal, <br>
+            the genius collaborator who fine-tuned the recipe, ensuring it <br> 
+            resonated perfectly with our Indian roots. <br>
+        </p>
+    </div>
+    <br><br><br><br><br><br><br><br>
+   <div>
+        <img src="newchoco.webp" alt="" height="400px">
+   </div>
+   <div class="andvoila">
+        <pre>
+            <h1 style="color: slateblue;">And voilà, Ananta -
+                 Real Taste Deluxe Candy</h1>
+            <!-- <font style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"></font> -->
+        <p style="color: rgb(0, 107, 149); font-size: large;">
+            Imagine a dance of buttery caramel, dipped in rich dark 
+            chocolate, and adorned with crunchy roasted nuts. It's not just 
+            chocolate; it's an experience that transcends the ordinary. 
+            Ananta is all about pushing boundaries without compromising 
+            on what matters most -your health. We've banished the usual 
+            suspects - no maida, no palm oil, and definitely no artificial colors 
+            or preservatives. Just pure, unadulterated bliss in every bite.
+        </p>
+        </pre>
+   </div>
+</div>
+<div class="candies">
+    <img src="candyss.png" alt="">
+</div>
+<div class="candyss"  style="position: relative; bottom: 750px; left: 700px;">
+    <p>
+        <h1 style="color: salmon;">We're not just offering chocolates</h1>
+        <br>
+        <p style="color: rgb(0, 107, 149); font-family: 'Times New Roman', Times, serif;font-size: larger;">
+        We're inviting you to join the movement. A movement that <br>
+        embraces premium, innovative, and healthy treats tailored for the New Age <br>
+        Indian palate. Say goodbye to the mundane and hello to the extraordinary. <br></p>
+        <br>
+        <h2 style="color: salmon;">We are doing</h2>
+        <font style="position: relative; left: 70px; color: royalblue; font-size: large;">
+        <ul>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li>Innovation</li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li>Community Engagement</li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li>Cultural Impact</li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li>Environmental Stewardship</li>
+        </ul>
+    </font>
+    </p>
+</div>
+
+<section class="footer">
+    <div class="footer-row">
+      <div class="footer-col">
+        <h2>ANANTA CHOCOLATES</h2>
+        <ul class="links">
+          <li><a href="OurStory.html">About Us</a></li>
+          <li><a href="shop.html">Our Collections</a></li>
+          <li><a href="BestDeals.html">Best Deals</a></li>
+          <li><a href="BulkOrder.html">Bulk/Corporate Orders</a></li>
+          <li><a href="Enquiry.html">Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bulk/Corporate Orders</h4>
+        <!-- <p>
+          For bulk/corporate orders, please get in touch with us on
+          +91 77588964005
+          +91 9075793933
+        </p>
+         -->
+        <ul class="links">
+          <li><a href="#">For bulk/corporate orders,</a></li>
+          <li><a href="#">please get in</a></li>
+          <li><a href="#">touch with us on</a></li>
+          <li><a href="#">94276 41996</a></li>
+          <li><a href="#">You can also mail us on </a></li>
+          <li><a href="#"> support@anantachocolates.in</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul class="links">
+          <li><a href="#">Customer Agreement</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">GDPR</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Media Kit</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+          <h4>
+              Contact Info
+          </h4>
+          <b><h2>MC PRODUCTS PRIVATE LTD</h2></b> <br>
+          <font style="color: white;">CIN: U15400MH2022PTC386840</font> <br><br>
+          <i class="fa fa-phone" style="font-size:26px"></i> :    +91 94276 41996 <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +91 94276 41997 <br>
+
+          <i class="fa fa-envelope" style="font-size:24px"></i> : support@anantachocolates.in
+              <br><br>
+            <h4>Newsletter</h4>
+          <p><font style="color: white;">
+          Subscribe to our newsletter for a weekly dose
+          of news, updates, helpful tips, and
+          exclusive offers.        </font>
+
+        </p>
+        <form action="#">
+          <input type="text" placeholder="Your email" required>
+          <button type="submit">SUBSCRIBE</button>
+        </form>
+        <div class="icons">
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-github"></i>
+        </div>
+      </div>
+    </div>
+    <center>
+        <p>Copyright &copy; 2024 Ananta Chocolates | All Rights Reserved</p>
+        <p>Mindfully crafted by Shrinil Mahesuria</p>
+    </center>
+  </section>
+</body>
+</html>

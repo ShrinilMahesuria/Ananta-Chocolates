@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Buy - Ananta Chocolates</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+        h1 {
+            color: rgb(191, 82, 82);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .b h1{
+            position: relative;
+            top: 10px;
+            left: 30px;
+            text-align: justify;
+        }
+
+        pre {
+            font-style: italic;
+            font-weight: bold;
+            color: lightcoral;
+            font-family: Arial, Helvetica, sans-serif;
+            align-content: center;
+        }
+
+        ul li {
+            color: rgb(203, 108, 97)
+        }
+
+        /* img {
+            position: relative;
+            top: 0px;
+            margin-top: -150px;
+            left: 550px;
+            border-radius: 30px;
+        } */
+
+        img .r {
+            height: 200px;
+        }
+
+        .b {
+            height: 400px;
+            width: 100%;
+            border-radius: 10px;
+            background-color: green;
+            opacity: 0.5;
+        }
+
+        .chocolate-box {
+            position: relative;
+            left: 590px;
+            bottom: 190px;
+            height: 250px;
+            width: 220px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .chocolate-box1{
+            position: relative;
+            left: 900px;
+            bottom: 440px;
+            height: 270px;
+            width: 220px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .ingredients {
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+        }
+
+        .luxury-label {
+            font-size: 12px;
+            color: #ff9900;
+            margin-top: 20px;
+        }
+        .Enquiry p{
+            color: maroon;
+            text-align: center;
+        }
+        button{
+            color: white;
+            font-size: 14px;
+            background-color: brown;
+            height: 50px;
+            width: 90px;
+            border-radius: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            border-radius: 2px;
+            border: 1px solid black; /* Set the outer border */
+        }
+
+        td {
+            /* border: none;  */
+            /* Remove the inner cell borders */
+        }
+        .foot{
+            height: 400px;
+            width: 100%;
+            background-color: brown;
+            opacity: 0.4;
+        }
+
+/* Importing Google font - Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+        }
+        h2{
+        color: white;
+        }
+
+    .navbar {
+    position: relative;
+    display: flex;
+    padding: 10px;
+    background-color: rgba(128, 0, 0, 0.526);
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 7px 5px 15px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 7px 5px 15px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 7px 5px 15px -4px rgba(0, 0, 0, 0.75);
+}
+
+.nav-items > ul > li {
+    position: relative;
+    display: inline;
+    list-style: none;
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.nav-items > ul > li > a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-items > ul > li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.17rem;
+    background-color: #c52726;
+    left: 0;
+    bottom: 0;
+    transform-origin: 0% 100%;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items > ul > li:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-logo a,
+.nav-button a {
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+}
+
+.nav-logo {
+    font-size: 32px;
+}
+
+.nav-button {
+    background-color: #c52726;
+    border-radius: 50px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.anim-layer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    background-color: white;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-button:hover .anim-layer {
+    width: 100%;
+    left: 0;
+}
+
+.nav-button:hover a {
+    color: #141214;
+}
+
+.nav-button a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+#hamburger-menu,
+#mobile-menu {
+    display: none;
+}
+
+@media only screen and (max-width: 770px) {
+    #mobile-menu {
+        background-color: #c52726;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+    }
+
+    .mobile-nav-items > ul {
+        padding: 0px;
+    }
+
+    .mobile-nav-items > ul > li {
+        text-align: center;
+        position: relative;
+        list-style: none;
+        margin: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    .mobile-nav-items > ul > li > a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .mobile-nav-items > ul > li::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 0.17rem;
+        background-color: white;
+        left: 0;
+        bottom: 0;
+        transform-origin: 0% 100%;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-nav-items > ul > li:hover::after {
+        transform: scaleX(1);
+    }
+
+    .mobile-nav-button {
+        background-color: #141214;
+        border-radius: 50px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .mobile-nav-button .anim-layer {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 0;
+        height: 100%;
+        background-color: white;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .mobile-nav-button:hover .anim-layer {
+        width: 100%;
+        left: 0;
+    }
+
+    .mobile-nav-button:hover a {
+        color: #141214;
+    }
+
+    .mobile-nav-button a {
+        display: block;
+        padding: 10px 20px;
+        color: white;
+        text-decoration: none;
+        position: relative;
+        z-index: 1;
+    }
+
+    .nav-items > ul,
+    .nav-button {
+        display: none;
+    }
+
+    #hamburger-cross {
+        display: block;
+        color: white;
+        cursor: pointer;
+        font-size: 40px;
+        position: absolute;
+        top: 20px;
+        right: 26px;
+    }
+
+    #hamburger-menu {
+        display: block;
+        color: white;
+        cursor: pointer;
+        font-size: 24px;
+    }
+}
+        .footer {
+        position: absolute;
+        top: 450%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 1280px;
+        width: 95%;
+        background: rgba(57, 13, 0, 0.743);
+        border-radius: 6px;
+        }
+
+        .footer .footer-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 3.5rem;
+        padding: 60px;
+        }
+
+        .footer-row .footer-col h4 {
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 400;
+        }
+
+        .footer-col .links {
+        margin-top: 20px;
+        }
+
+        .footer-col .links li {
+        list-style: none;
+        margin-bottom: 10px;
+        }
+
+        .footer-col .links li a {
+        text-decoration: none;
+        color: #bfbfbf;
+        }
+
+        .footer-col .links li a:hover {
+        color: #fff;
+        }
+
+        .footer-col p {
+        margin: 20px 0;
+        color: #bfbfbf;
+        max-width: 300px;
+        }
+
+        .footer-col form {
+        display: flex;
+        gap: 5px;
+        }
+
+        .footer-col input {
+        height: 40px;
+        border-radius: 6px;
+        background: none;
+        width: 100%;
+        outline: none;
+        border: 1px solid #7489C6 ;
+        caret-color: #fff;
+        color: #fff;
+        padding-left: 10px;
+        }
+
+        .footer-col input::placeholder {
+        color: #ccc;
+        }
+
+        .footer-col form button {
+        background: #fff;
+        outline: none;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.2s ease;
+        }
+
+        .footer-col form button:hover {
+        background: #cecccc;
+        }
+
+        .footer-col .icons {
+        display: flex;
+        margin-top: 30px;
+        gap: 30px;
+        cursor: pointer;
+        }
+
+        .footer-col .icons i {
+        color: #afb6c7;
+        }
+
+        .footer-col .icons i:hover  {
+        color: #fff;
+        }
+
+        @media (max-width: 768px) {
+        .footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            transform: none;
+            width: 100%;
+            border-radius: 0;
+        }
+
+        .footer .footer-row {
+            padding: 20px;
+            gap: 1rem;
+        }
+
+        .footer-col form {
+            display: block;
+        }
+
+        .footer-col form :where(input, button) {
+            width: 100%;
+        }
+
+        .footer-col form button {
+            margin: 10px 0 0 0;
+        }
+        }
+        
+
+
+
+            form{
+                margin-left: 28.5vw;
+                text-align: center;
+                input{
+                    border: 1px solid grey;
+                    padding: 0.5rem 1rem;
+                    margin: 1rem 2rem;
+                    border-radius: 10px;
+                }
+                table{
+                    tr,td{
+                        border: none;
+                    }
+                }
+            }
+            body{
+                overflow-x: hidden;
+                overflow-y: h;
+            }
+    </style>
+</head>
+
+<body>
+   
+    <div class="navbar" style="position: relative;">
+        <div class="nav-logo">
+          <a href="shop.html" style="position: absolute;  top:0.5rem; left: 1rem; height: 3rem; width: 3rem;">
+            <img src="anantalogo.png" style="width: 3rem;" alt="">
+          </a>
+        </div>
+        <div class="nav-items">
+          <ul>
+            <li><a href="shop.html"> Shop </a></li>
+            <li><a href="BestDeals.html"> Best Deals </a></li>
+            <li><a href="OurStory.html"> Our Story </a></li>
+            <li><a href="BulkOrder.html"> Bulk Orders </a></li>
+          </ul>
+        </div>
+        <div class="nav-button">
+          <div class="anim-layer"></div>
+          <a href="Enquiry.html">Sign Up</a>
+        </div>
+        <div id="hamburger-menu">&#9776;</div>
+      </div>
+  
+      <div id="mobile-menu">
+        <div class="mobile-nav-items">
+          <ul>
+            <li><a href="shop.html"> Shop </a></li>
+            <li><a href="BestDeals.html"> Best Deals </a></li>
+            <li><a href="OurStory.html"> Our Story </a></li>
+            <li><a href="BulkOrder.html"> Bulk Orders </a></li>
+          </ul>
+        </div>
+        <div class="mobile-nav-button">
+          <div class="anim-layer"></div>
+          <a href="#">Sign Up</a>
+        </div>
+        <div id="hamburger-cross">&#10006;</div>
+      </div>
+      <br><br>
+    <div>
+        <h1 align="center">Bulk/Corporate Order</h1>
+        <center>
+            <pre style="font-size: large;">
+            At Ananta, we understand the importance of celebrating special moments and fostering meaningful
+            connections. That's why we're thrilled to offer our delectable chocolates for bulk orders 
+            and corporate gifting opportunities.
+        </pre>
+        </center>
+    </div>
+    <h1 style="text-decoration: none;">
+        <!-- <a href="template.html"> -->
+            What Can We Offer?
+        <!-- </a> -->
+    </h1>
+    <div style="margin-left: 5rem; display: flex;">
+        
+        
+        <ul>
+            <li>Upto 50% off on B2B bulk orders</li>
+            <li>Customised branded sleeves for your brand</li>
+            <li>Special box with 4 Amazing flavours to cherish.</li>
+            <li>Ananta promise, tastes so good that you can't just stop at one!</li>
+        </ul>
+        <a href="template.html" style="margin-top: -40px; margin-bottom: 3rem;padding-left: 3rem; padding-bottom: 2rem;">
+            <img src="Venchi_600x300px_1_720x.webp" alt="">
+        </a>
+        
+    </div><hr>
+    <br><br>
+    <div class="b" style="margin-bottom: 3rem;">
+        <br>
+        <h1 style="color: white;">What's The Special?</h1>
+        <pre>
+                <font color="white">
+                    With Ananta, you can customize your order to suit
+                    your specific needs and preferences. From 
+                    personalized packaging to bespoke flavor 
+                    combinations, we're dedicated to making your bulk
+                    order or corporate gift truly unique & memorable.
+                </font>
+                <!-- Customize In Your Own Wayyyyyy -->
+                <!-- <h1>Customize your way</h1> -->
+            </pre>
+        <!-- <img src="Rocca_Bulk.webp" alt="" class="r"> -->
+        <div class="chocolate-box">
+            <div class="brand-name">ANANTA</div>
+            <div class="description">50% Roast Pistachio</div>
+            <div class="description">Gourmet Caramel Covered in Dark Chocolate</div>
+            <div class="ingredients">Sprinkled with Pistachio</div>
+            <!-- <div class="luxury-label">THE NEW AGE CHOCOLATE</div> -->
+        </div>
+
+        <div class="chocolate-box1">
+            <div class="brand-name">ANANTA</div>
+            <div class="description">50% Roast Almond</div>
+            <div class="description">Gourmet Caramel Covered in Dark Chocolate</div>
+            <div class="ingredients">Sprinkled with Roasted Almonds</div>
+            <!-- <div class="luxury-label">THE NEW AGE CHOCOLATE</div> -->
+        </div>
+    </div>
+    <div class="Enquiry">
+        <h1 align="center">Bulk Order Enquiry</h1>
+        <p>
+            This season, gift your employees the ANANTA experience, and make them feel good with ANANTA! <br> Reach out to us
+            at <font style="text-decoration: underline;">support@ananta.in</font> or fill the form below for bulk order discounts.
+        </p>
+       <!-- Directing to Google Form created by Me -->
+        <!-- <center>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScduTJBGE8HU8vuJcNn0R1fODryHCJF0-V_kXMDH0YGPimFvg/viewform?usp=sf_link">
+                    <button>Contact Us</button>
+                </a>
+        </center> -->
+        <center>
+            <a href="Enquiry.html">
+                <button>Contact Us</button>
+            </a>
+    </center>
+    </div>
+<br><br>
+    <div>
+        <center>
+            <h1>
+                JOIN US
+            </h1>
+        
+    <form action="" style="z-index: 999; border: none;">
+        <table border="1" cellspacing="8" cellpadding="20" rules="all" width="50%" align="center" style="border: 1px solid blue; ">
+            <tr>
+                <td ><input type="text" placeholder="First Name*" required></td>
+                <td><input type="text" placeholder="Last Name*" required></td>
+            </tr>
+            <tr>
+                <td><input type="tel" placeholder="Mobile*" required></td>
+                <td><input type="tel" placeholder="Whatsapp Number"></td>
+            </tr>
+            <tr>
+                <td><input type="email" placeholder="Email"></td>
+                <td><input type="text" placeholder="Company"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Street"></td>
+                <td><input type="text" placeholder="District"></td>       
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="City*" required></td>
+                <td><input type="text" placeholder="State*" required></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" placeholder="Zip Code*" required></td>
+            </tr>        
+            <tr>
+                <!-- <td colspan="2"><input type="text" placeholder="Description" style="width: 360px;"></td> -->
+            <td colspan="2">
+                <textarea placeholder="Description" rows="10px" cols="60px" ></textarea>
+            </td>
+                <!-- <td></td> -->
+            </tr>
+            <tr>
+            <center>
+                <td >
+                    <a href="formsubmit.html">
+                        <button class="btn text-white " style="background-color: blue;">Submit</button>
+                    </a>
+                </td>
+                <td >
+                    <input type="reset" name="" id="" placeholder="Reset" style="background-color: blue;  height: 50px; width: 90px; border-radius: 10px;color: white;">
+                </td>
+            </center>
+            </tr>
+        </table>
+    </form>
+</center>
+    </div>
+
+
+    <section class="footer" style="margin-top: 300px;">
+        <div class="footer-row">
+          <div class="footer-col">
+            <h2>BULK/CORPORATE ORDERS</h2>
+            <ul class="links">
+              <li><a href="OurStory.html">About Us</a></li>
+              <li><a href="shop.html">Our Collections</a></li>
+              <li><a href="BestDeals.html">Best Deals</a></li>
+              <li><a href="BulkOrder.html">Bulk/Corporate Orders</a></li>
+              <li><a href="Enquiry.html">Service</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-col">
+            <h4>Bulk/Corporate Orders</h4>
+            <!-- <p>
+              For bulk/corporate orders, please get in touch with us on
+              +91 77588964005
+              +91 9075793933
+            </p>
+             -->
+            <ul class="links">
+              <li><a href="#">For bulk/corporate orders,</a></li>
+              <li><a href="#">please get in</a></li>
+              <li><a href="#">touch with us on</a></li>
+              <li><a href="#">94276 41996</a></li>
+              <li><a href="#">You can also mail us on </a></li>
+              <li><a href="#"> support@anantachocolates.in</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul class="links">
+              <li><a href="#">Customer Agreement</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">GDPR</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Testimonials</a></li>
+              <li><a href="#">Media Kit</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-col">
+              <h4>
+                  Contact Info
+              </h4>
+              <b><h2>MC PRODUCTS PRIVATE LTD</h2></b> <br>
+              <font style="color: white;">CIN: U15400MH2022PTC386840</font> <br><br>
+              <i class="fas fa-phone"></i> :    <font style="color: white;"><span style="color: white" class="colorChange"> Phone : +91 94276 41996 </span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               +91 94276 41997 <br>
+  
+              <i class="fa fa-envelope" style="font-size:24px"></i>Email : support@anantachocolates.in
+                  <br><br>
+                <h4>Newsletter</h4>
+              <p><font style="color: white;">
+              Subscribe to our newsletter for a weekly dose
+              of news, updates, helpful tips, and
+              exclusive offers.        </font>
+  
+            </p>
+            <form action="#">
+              <input type="text" placeholder="Your email" required>
+              <button type="submit" style="width: 110px;opacity: 0.4;color: black;font-weight: bold;">SUBSCRIBE</button>
+            </form>
+            <div class="icons">
+              <i class="fa-brands fa-facebook-f"></i>
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-linkedin"></i>
+              <i class="fa-brands fa-github"></i>
+            </div>
+          </div>
+        </div>
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9019.205312620941!2d72.30084683112915!3d24.220674659420382!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c950403f34c4b%3A0x206fae2b95a59221!2sM.C.PRODUCTS.P.LTD!5e0!3m2!1sen!2sin!4v1711913295131!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <center>
+            <p>Copyright &copy; 2024 Ananta Chocolates | All Rights Reserved</p>
+            <p>Mindfully crafted by Shrinil Mahesuria</p>
+
+        </center>
+      </section>
+    <!-- Embedded Google Form -->
+    <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScduTJBGE8HU8vuJcNn0R1fODryHCJF0-V_kXMDH0YGPimFvg/viewform?embedded=true" width="640" height="1829" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
+</body>
+<script>
+    var getHubergerIcon = document.getElementById("hamburger-menu");
+    var getHubergerCrossIcon = document.getElementById("hamburger-cross");
+    var getMobileMenu = document.getElementById("mobile-menu");
+
+    getHubergerIcon.addEventListener("click", function () {
+        console.log("hello");
+        getMobileMenu.style.display = "flex";
+        setTimeout(function () {
+            getMobileMenu.style.transform = "translateX(0%)"; // Slide in the menu
+        }, 50); // Add a small delay for better transition effect
+    });
+
+    getHubergerCrossIcon.addEventListener("click", function () {
+        console.log("hello");
+        getMobileMenu.style.transform = "translateX(-100%)"; // Slide out the menu
+        setTimeout(function () {
+            getMobileMenu.style.display = "none";
+        }, 300); // Wait for the transition to end before hiding
+    });
+
+    // Check if screen size changes to desktop view and hide mobile menu
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 770) {
+            getMobileMenu.style.display = "none";
+        }
+    });
+</script>
+</html>
