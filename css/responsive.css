@@ -1,0 +1,65 @@
+/* Mobile devices (portrait and landscape) */
+@media only screen and (max-width: 768px) {
+    /* Adjust navbar */
+    .navbar-collapse {
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      overflow-y: auto;
+      transition: transform 0.3s ease;
+      -webkit-overflow-scrolling: touch;
+      display: none;
+    }
+  
+    .navbar-collapse.show {
+      display: block;
+      transform: translateY(0%);
+    }
+  
+    .navbar-nav {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .nav-item {
+      margin-right: 0 !important;
+    }
+  
+    /* Adjust logo */
+    .navbar-brand img {
+      max-width: 50%;
+    }
+  
+    /* Adjust carousel */
+    .carousel-item img {
+      height: auto;
+      width: 100%;
+    }
+  
+    /* Adjust card layout */
+    .card {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Tablet devices */
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    /* Adjust logo */
+    .navbar-brand img {
+      max-width: 70%;
+    }
+  }
+  
+  /* Large devices */
+  @media only screen and (min-width: 1025px) {
+    /* Adjust logo */
+    .navbar-brand img {
+      max-width: 100%;
+    }
+  }
+  
